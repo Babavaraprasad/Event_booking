@@ -1,10 +1,13 @@
-import logo from './logo.svg';
+import EventList from './components/EventList.tsx';
+
 import './App.css';
 
 export default function App() {
+
   return (
-    <>
-    React app- Event booking
-    </>
+    <div style={{maxWidth:600, margin:"0 auto"}}>
+      <h1>Event Booking system</h1>
+    <EventList/>
+    </div>
   );
 }
