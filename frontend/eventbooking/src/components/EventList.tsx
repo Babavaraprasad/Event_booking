@@ -1,13 +1,12 @@
 import {useState, useEffect} from "react";
 import { Event } from "../types/Event";
-import EventDetails from "./EventDetails.tsx";
-import {Link} from "react-router-dom";
+import {data, Link} from "react-router-dom";
 
 export default function EventList(){
  const [events, setEvents] = useState<Event[]>([]);
  const [isloading, setloading] = useState(true);
  
- const apiUrl = "https://mocki.io/v1/af609a82-bdbb-4149-85eb-56248cbdba58";
+ const apiUrl = "http://localhost:5279/api/events";
  useEffect(()=>{
        fetch(apiUrl)
        .then(res => res.json())
@@ -31,7 +30,7 @@ export default function EventList(){
                     <h3>{event.name}</h3>
                     <p>Date: {event.date}</p>
                     <p>Available seats: {event.availableSeats}</p>
-                   <a href="">View Details</a>
+                    <Link to={`events/${event.id}`} state={{event}}>View Details</Link>
                 </div>
             ))
             }

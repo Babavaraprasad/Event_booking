@@ -1,6 +1,6 @@
-using System.Text.Json;
 
-public class EventFileStorage
+using System.Text.Json;
+  public class EventFileStorage
 {
     private readonly string _filePath = "Data/events.json";
 
@@ -17,4 +17,5 @@ public class EventFileStorage
                 PropertyNameCaseInsensitive = true
             }) ?? new List<Event>();
     }
-}
+}  
+
