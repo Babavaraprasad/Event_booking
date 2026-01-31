@@ -1,5 +1,7 @@
 import {useState, useEffect} from "react";
 import { Event } from "../types/Event";
+import EventDetails from "./EventDetails.tsx";
+import {Link} from "react-router-dom";
 
 export default function EventList(){
  const [events, setEvents] = useState<Event[]>([]);
@@ -18,18 +20,22 @@ export default function EventList(){
 
  if(isloading) {return <p>Loading items....</p>}
 
+
     return(
         <div>
             <h2>Upcoming Events</h2>
+            <div style={{display: "flex", flexDirection:"column"}}>
             {events.map(event =>(
-                    <div key={event.id} style={{ border: "1px solid #ccc", padding: 12, marginBottom: 8 }}>
+                <div key={event.id} style={{ border: "1px solid #ccc", padding: 12, marginBottom: 14, backgroundColor:"whitesmoke", display:"flex", 
+                    flexDirection:"row", justifyContent:"space-evenly", alignItems:"center", borderRadius:"10px"}}>
                     <h3>{event.name}</h3>
                     <p>Date: {event.date}</p>
                     <p>Available seats: {event.availableSeats}</p>
-                    <button>view details</button>
-                    </div>
-                ))
+                   <a href="">View Details</a>
+                </div>
+            ))
             }
+            </div>
         </div>
     );
 }
