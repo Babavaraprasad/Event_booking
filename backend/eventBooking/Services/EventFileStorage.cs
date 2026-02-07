@@ -17,5 +17,10 @@ using System.Text.Json;
                 PropertyNameCaseInsensitive = true
             }) ?? new List<Event>();
     }
+    public void SaveEventData(List<Event>events)
+    {
+         var content = JsonSerializer.Serialize(events, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(_filePath, content);
+    }
 }  
 

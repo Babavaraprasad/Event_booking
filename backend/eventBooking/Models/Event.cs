@@ -6,3 +6,9 @@ public class Event
     public int AvailableSeats {get; set;}
     public string Description{get; set;} = string.Empty;
 }
+
+public class BookingRequest
+{
+    public int EventId {get; set;}
+    public int Seats {get; set;}
+}
